@@ -4,9 +4,9 @@
 LOG_FILE="/var/log/asterisk-sync.log"
 echo "$(date): Запуск синхронизации Asterisk" >> $LOG_FILE
 
-rsync -avz --delete -e ssh /etc/asterisk/ nos@pbx-slave:/etc/asterisk/ >> $LOG_FILE 2>&1
+rsync -avz --delete -e ssh /etc/asterisk/ user@pbx-slave:/etc/asterisk/ >> $LOG_FILE 2>&1
 
-rsync -avz --delete -e ssh /var/spool/asterisk/ nos@pbx-slave:/var/spool/asterisk/ >> $LOG_FILE 2>&1
-rsync -avz --delete -e ssh /var/lib/asterisk/ nos@pbx-slave:/var/lib/asterisk/ >> $LOG_FILE 2>&1
+rsync -avz --delete -e ssh /var/spool/asterisk/ user@pbx-slave:/var/spool/asterisk/ >> $LOG_FILE 2>&1
+rsync -avz --delete -e ssh /var/lib/asterisk/ user@pbx-slave:/var/lib/asterisk/ >> $LOG_FILE 2>&1
 
 echo "$(date): Синхронизация Asterisk завершена" >> $LOG_FILE
